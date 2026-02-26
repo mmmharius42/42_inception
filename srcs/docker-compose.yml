@@ -1,0 +1,12 @@
+test-mariadb:
+	docker build -t mariadb srcs/requirements/mariadb/
+	docker run -d \
+		--name mariadb \
+		-e MYSQL_DATABASE=wordpress \
+		-e MYSQL_USER=wpuser \
+		-v $(PWD)/secrets/db_password:/run/secrets/db_password \
+		-v $(PWD)/secrets/db_root_password:/run/secrets/db_root_password \
+		mariadb
+
+stop-mariadb:
+	docker rm -f mariadb
