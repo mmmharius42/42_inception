@@ -1,5 +1,5 @@
 srcs/.env
-secrets/
+secrets/db_password.txt
+secrets/db_root_password.txt
+secrets/credentials.txt
 !.env.exemple
-!secrets/db_password_exemple.txt
-!secrets/db_root_password_exemple.txt
