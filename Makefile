@@ -1,15 +1,23 @@
-test-mariadb:
-	docker rm -f mariadb 2>/dev/null || true
-	docker build -t mariadb srcs/requirements/mariadb/
-	docker run -d \
-		--name mariadb \
-		-e MYSQL_DATABASE=wordpress \
-		-e MYSQL_USER=wpuser \
-		-v $(PWD)/secrets/db_password:/run/secrets/db_password \
-		-v $(PWD)/secrets/db_root_password:/run/secrets/db_root_password \
-		mariadb
-	sleep 10
-	docker logs mariadb
+NAME        = inception
+COMPOSE     = docker-compose -f srcs/docker-compose.yml
+DATA_DB     = /home/mpapin/data/db
+DATA_WP     = /home/mpapin/data/wordpress
 
-stop-mariadb:
-	docker rm -f mariadb
+all: up
+
+up:
+	@sudo mkdir -p $(DATA_DB) $(DATA_WP)
+	$(COMPOSE) up --build -d
+
+down:
+	$(COMPOSE) down
+
+clean:
+	$(COMPOSE) down -v --rmi all
+
+fclean: clean
+	@sudo rm -rf $(DATA_DB) $(DATA_WP)
+
+re: fclean all
+
+.PHONY: all up down clean fclean re

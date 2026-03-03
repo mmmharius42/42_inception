@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY conf/nginx.conf /etc/nginx/sites-available/default
-COPY tools/generate_ssl.sh /generate_ssl.sh
-RUN chmod +x /generate_ssl.sh
+COPY tools/nginx.sh /nginx.sh
+RUN chmod +x /nginx.sh
 
 EXPOSE 443
 
-ENTRYPOINT ["/generate_ssl.sh"]
+ENTRYPOINT ["/nginx.sh"]
