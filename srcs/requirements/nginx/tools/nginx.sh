@@ -8,4 +8,5 @@ if [ ! -f /etc/nginx/ssl/nginx.crt ]; then
         -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=student/CN=mpapin.42.fr"
 fi
 
+envsubst '${DOMAIN_NAME}' < /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
 exec nginx -g "daemon off;"

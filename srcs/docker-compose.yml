@@ -15,16 +15,8 @@ networks:
 volumes:
   db_data:
     driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/mpapin/data/db
   wp_data:
     driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/mpapin/data/wordpress
 
 services:
   mariadb:
