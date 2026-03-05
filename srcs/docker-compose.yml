@@ -13,14 +13,22 @@ networks:
 volumes:
   db_data:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${LOGIN}/data/mariadb
   wp_data:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${LOGIN}/data/wordpress
 
 services:
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
-    restart: on-failure
+    restart: always
     networks:
       - inception
     volumes:
@@ -37,7 +45,7 @@ services:
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
-    restart: on-failure
+    restart: always
     depends_on:
       - mariadb
     networks:
@@ -57,7 +65,7 @@ services:
   nginx:
     build: ./requirements/nginx
     container_name: nginx
-    restart: on-failure
+    restart: always
     depends_on:
       - wordpress
     networks:
