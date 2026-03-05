@@ -29,6 +29,19 @@ make clean  # stop and remove volumes/images
 make re     # full rebuild
 ```
 
+
 ### Access
 - Website: `https://login.42.fr`
 - Admin panel: `https://login.42.fr/wp-admin`
+
+### Resources 
+- [Docker official documentation](https://docs.docker.com/)
+- [Docker Compose documentation](https://docs.docker.com/compose/)
+- [NGINX documentation](https://nginx.org/en/docs/)
+- [WordPress WP-CLI documentation](https://wp-cli.org/)
+- [MariaDB documentation](https://mariadb.com/kb/en/)
+- [PHP-FPM documentation](https://www.php.net/manual/en/install.fpm.php)
+- [OpenSSL documentation](https://www.openssl.org/docs/)
+
+### IA USAGE
+AI was used to clarify Docker concepts and to proofread documentation. All code was written and validated personally.
