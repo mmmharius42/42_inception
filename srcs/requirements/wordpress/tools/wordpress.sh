@@ -13,8 +13,8 @@ mkdir -p /run/php
 mkdir -p /var/www/html
 cd /var/www/html
 
-if [ ! -f wp-config.php ]; then
-
+if [ ! -f wp-config.php ]; then     #first lunch
+    # ! -> while no error
     while ! php -r "
         \$conn = @mysqli_connect('mariadb', '${MYSQL_USER}', '${DB_PASSWORD}', '${MYSQL_DATABASE}');
         if (\$conn) {
@@ -22,7 +22,7 @@ if [ ! -f wp-config.php ]; then
             exit(0);
         }
         exit(1); " 2>/dev/null; 
-    do
+    do 
         echo "Waiting for MariaDB..."
         sleep 2
     done
