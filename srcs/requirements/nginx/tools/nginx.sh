@@ -11,4 +11,5 @@ fi
 envsubst '${DOMAIN_NAME}' < /etc/nginx/sites-available/default > /tmp/nginx_default
 cp /tmp/nginx_default /etc/nginx/sites-enabled/default
 
+#-t test, -g lunch with option
 nginx -t && exec nginx -g "daemon off;"
