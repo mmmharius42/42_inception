@@ -37,6 +37,7 @@ echo "127.0.0.1 login.42.fr" | sudo tee -a /etc/hosts
 
 ```bash
 make        # build images and start containers
+make up     # build images and start containers
 make down   # stop containers
 make clean  # stop + remove volumes and images
 make re     # full rebuild from scratch

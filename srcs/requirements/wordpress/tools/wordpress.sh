@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DB_PASSWORD=$(</run/secrets/db_password)
+DB_PASSWORD=$(cat /run/secrets/db_password)
 set -a
 source /run/secrets/credentials
 set +a
