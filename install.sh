@@ -16,7 +16,7 @@ WP_USER="user"
 WP_USER_PASSWORD="mdp"
 WP_USER_EMAIL="user@42.fr"
 
-REPO_URL="https://github.com/login/42_inception.git"
+REPO_URL="https://github.com/mmmharius42/42_inception.git"
 
 sudo apt-get update -qq
 sudo apt-get install -y git make curl ca-certificates gnupg lsb-release > /dev/null
